@@ -104,6 +104,7 @@
   .msg { max-width:86%; padding:11px 14px; border-radius:14px; font-size:14px; line-height:1.55; }
   .msg.bot { background:var(--card2); border:1px solid var(--border); align-self:flex-start; border-bottom-left-radius:4px; }
   .msg.user { background:linear-gradient(135deg,var(--blue) 0%,#1d4ed8 100%); color:white; align-self:flex-end; border-bottom-right-radius:4px; box-shadow:0 2px 12px var(--blue-glow); }
+  .msg.typing { color:var(--muted); font-style:italic; }
 
   .ai-input-row { display:flex; gap:8px; padding:12px 18px 16px; border-top:1px solid var(--border); background:var(--bg2); flex-shrink:0; }
   .ai-input { flex:1; padding:11px 14px; background:var(--card2); border:1px solid var(--border); border-radius:10px; font-family:'Inter',sans-serif; font-size:14px; color:var(--text); outline:none; }
@@ -142,12 +143,14 @@
 </head>
 <body>
 
+<!-- FIO -->
 <div class="screen active" id="screen-fio">
   <div class="header">
     <div class="logo">
-      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAA..." alt="Almaty Hub" style="height:36px;filter:brightness(0) invert(1)">
+      <div class="logo-dot">🏙</div>
+      Almaty <span>Hub</span>
     </div>
-    <div class="header-sub">Students & Startups · Since 2023</div>
+    <div class="header-sub">Students &amp; Startups · Since 2023</div>
   </div>
   <div class="fio-wrap">
     <div class="fio-title">Добро пожаловать! 👋</div>
@@ -157,10 +160,11 @@
   </div>
 </div>
 
+<!-- ROLE -->
 <div class="screen" id="screen-role">
   <div class="header">
-    <div class="logo">Almaty Hub</div>
-    <div class="header-sub">Students & Startups</div>
+    <div class="logo"><div class="logo-dot">🏙</div>Almaty <span>Hub</span></div>
+    <div class="header-sub">Students &amp; Startups</div>
   </div>
   <div class="content">
     <div class="stats-hero">
@@ -185,10 +189,11 @@
   </div>
 </div>
 
+<!-- STUDENT MENU -->
 <div class="screen" id="screen-student">
   <div class="header">
     <div class="header-back visible" onclick="goBack('screen-role')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>Назад</div>
-    <div class="logo">Almaty Hub</div>
+    <div class="logo"><div class="logo-dot">🎓</div>Almaty <span>Hub</span></div>
     <div class="header-sub">Раздел студента</div>
   </div>
   <div class="content">
@@ -210,10 +215,11 @@
   </div>
 </div>
 
+<!-- STARTUP MENU -->
 <div class="screen" id="screen-startup">
   <div class="header">
     <div class="header-back visible" onclick="goBack('screen-role')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>Назад</div>
-    <div class="logo">Almaty Hub</div>
+    <div class="logo"><div class="logo-dot">🚀</div>Almaty <span>Hub</span></div>
     <div class="header-sub">Раздел стартапера</div>
   </div>
   <div class="content">
@@ -224,7 +230,7 @@
         <div>
           <div class="menu-title">Спросить ИИ о программах</div>
           <div class="menu-sub" style="color:rgba(255,255,255,0.55);margin-top:2px">Silkway, AI'preneurs, Central Eurasia</div>
-          <div class="ai-badge">Telegram Бот · Бесплатно</div>
+          <div class="ai-badge">Groq Cloud · Бесплатно</div>
         </div>
       </div>
       <div class="menu-item" onclick="showScreen('screen-residency')">
@@ -237,10 +243,11 @@
   </div>
 </div>
 
+<!-- FORM -->
 <div class="screen" id="screen-form">
   <div class="header">
     <div class="header-back visible" onclick="goBack('screen-startup')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>Назад</div>
-    <div class="logo">Almaty Hub</div>
+    <div class="logo"><div class="logo-dot">📝</div>Almaty <span>Hub</span></div>
     <div class="header-sub">Заявка стартапа</div>
   </div>
   <div class="content">
@@ -256,10 +263,11 @@
   </div>
 </div>
 
+<!-- RESIDENCY -->
 <div class="screen" id="screen-residency">
   <div class="header">
     <div class="header-back visible" onclick="goBack('screen-startup')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>Назад</div>
-    <div class="logo">Almaty Hub</div>
+    <div class="logo"><div class="logo-dot">🏢</div>Almaty <span>Hub</span></div>
     <div class="header-sub">Резидентство</div>
   </div>
   <div class="content">
@@ -275,27 +283,29 @@
   </div>
 </div>
 
+<!-- AI CHAT -->
 <div class="screen" id="screen-ai">
   <div class="header">
     <div class="header-back visible" onclick="goBack('screen-startup')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>Назад</div>
     <div class="logo"><div class="logo-dot">🤖</div>ИИ <span>Ассистент</span></div>
-    <div class="header-sub">Telegram Бот · Almaty Hub</div>
+    <div class="header-sub">Groq Cloud · Almaty Hub</div>
   </div>
   <div class="ai-wrap">
     <div class="ai-messages" id="ai-messages">
-      <div class="msg bot">Сәлем! 👋 Я ИИ-ассистент Almaty Hub.<br><br>Задайте ваш вопрос, и я отвечу вам прямо в чате Telegram!</div>
+      <div class="msg bot">Сәлем! 👋 Я ИИ-ассистент Almaty Hub на базе <b>Groq Cloud</b>.<br><br>Задайте вопрос о программах <b>Silkway</b>, <b>AI'preneurs</b> или <b>Central Eurasia Entry Market</b>.<br><br><span style="color:var(--cyan);font-size:12px">💬 Ответ придёт в ваш Telegram чат</span></div>
     </div>
     <div class="ai-input-row">
-      <input class="ai-input" id="ai-input" placeholder="Задайте вопрос..." onkeydown="if(event.key==='Enter')sendAI()"/>
+      <input class="ai-input" id="ai-input" placeholder="Задайте вопрос..."/>
       <button class="ai-send" onclick="sendAI()"><svg viewBox="0 0 24 24"><path d="M2 21l21-9L2 3v7l15 2-15 2v7z"/></svg></button>
     </div>
   </div>
 </div>
 
+<!-- SUCCESS -->
 <div class="screen" id="screen-success">
   <div class="header">
-    <div class="logo">Almaty Hub</div>
-    <div class="header-sub">Students & Startups</div>
+    <div class="logo"><div class="logo-dot">🏙</div>Almaty <span>Hub</span></div>
+    <div class="header-sub">Students &amp; Startups</div>
   </div>
   <div class="success-wrap">
     <div class="success-icon">✅</div>
@@ -305,75 +315,208 @@
   </div>
 </div>
 
+<!-- ADMIN -->
+<div class="screen" id="screen-admin">
+  <div class="header">
+    <div class="header-back visible" id="admin-back-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>Назад</div>
+    <div class="logo"><div class="logo-dot">⚙️</div>Almaty <span>Hub</span></div>
+    <div class="header-sub">Мои заявки</div>
+  </div>
+  <div class="content">
+    <div class="admin-stats">
+      <div class="stat-card"><div class="sn" id="stat-total">0</div><div class="sl">Всего заявок</div></div>
+      <div class="stat-card"><div class="sn" id="stat-new">0</div><div class="sl">Сегодня</div></div>
+    </div>
+    <div class="section-title">Последние заявки</div>
+    <div id="apps-list"><div style="text-align:center;color:var(--muted);padding:30px;font-size:14px">Заявок пока нет</div></div>
+  </div>
+</div>
+
+<!-- STUDENT FORM -->
+<div class="screen" id="screen-student-form">
+  <div class="header">
+    <div class="header-back visible" onclick="goBack('screen-student')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>Назад</div>
+    <div class="logo"><div class="logo-dot">🎓</div>Almaty <span>Hub</span></div>
+    <div class="header-sub">Заявка студента</div>
+  </div>
+  <div class="content">
+    <div class="form-title">📝 Оставить заявку</div>
+    <div class="form-desc">Заполните форму и мы свяжемся с вами</div>
+    <div class="field"><label>Почта</label><input type="email" id="st-email" placeholder="example@mail.com"/></div>
+    <div class="field"><label>Телефон</label><input type="tel" id="st-phone" placeholder="+7 700 000 00 00"/></div>
+    <div class="field"><label>Университет</label><input type="text" id="st-uni" placeholder="Название университета"/></div>
+    <div class="field"><label>Курс</label><select id="st-year">
+      <option value="">Выберите курс</option>
+      <option>1 курс</option><option>2 курс</option><option>3 курс</option>
+      <option>4 курс</option><option>Магистратура</option>
+    </select></div>
+    <div class="field"><label>Специальность</label><input type="text" id="st-spec" placeholder="Например: IT, Менеджмент"/></div>
+    <button class="btn" onclick="submitStudentForm()">Отправить заявку ✓</button>
+  </div>
+</div>
+
 <script>
+// ── Инициализация Telegram WebApp ──────────────────────────────────────────────
 const tg = window.Telegram?.WebApp;
 if (tg) { tg.expand(); tg.ready(); }
 
-let state = { fio:'', role:'' };
-let applications = JSON.parse(localStorage.getItem('hub_apps')||'[]');
+// !! API ключ Groq удалён из браузера — теперь хранится в config.py на сервере !!
 
+let state = { fio: '', role: '' };
+let applications = JSON.parse(localStorage.getItem('hub_apps') || '[]');
+
+// ── Навигация ──────────────────────────────────────────────────────────────────
 function showScreen(id) {
-  document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
+  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
   document.getElementById(id).classList.add('active');
-  window.scrollTo(0,0);
+  window.scrollTo(0, 0);
 }
 function goBack(id) { showScreen(id); }
-function openLink(url) { if(tg) tg.openLink(url); else window.open(url,'_blank'); }
+function openLink(url) {
+  if (tg) tg.openLink(url);
+  else window.open(url, '_blank');
+}
 
+// ── ФИО ────────────────────────────────────────────────────────────────────────
 function submitFio() {
   const val = document.getElementById('fio-input').value.trim();
-  if(!val){ alert('Введите ваше имя'); return; }
+  if (!val) { alert('Введите ваше имя'); return; }
   state.fio = val;
-  document.getElementById('welcome-name').textContent = 'Привет, '+val.split(' ')[0]+'!';
+  document.getElementById('welcome-name').textContent = 'Привет, ' + val.split(' ')[0] + '!';
   showScreen('screen-role');
 }
+
+// ── Выбор роли ─────────────────────────────────────────────────────────────────
 function selectRole(role) {
   state.role = role;
-  showScreen(role==='student'?'screen-student':'screen-startup');
+  showScreen(role === 'student' ? 'screen-student' : 'screen-startup');
 }
+
+// ── Заявка стартапа ────────────────────────────────────────────────────────────
 function submitForm() {
-  const app = { id:Date.now(), fio:state.fio, role:state.role, typeName:'Заявка стартапа', date:new Date().toLocaleDateString('ru'), time:new Date().toLocaleTimeString('ru',{hour:'2-digit',minute:'2-digit'}) };
+  const app = {
+    action: 'submit',
+    id: Date.now(),
+    fio: state.fio,
+    role: state.role,
+    typeName: 'Заявка стартапа',
+    company: document.getElementById('s-company')?.value.trim() || '',
+    product: document.getElementById('s-product')?.value.trim() || '',
+    contact: document.getElementById('s-contact')?.value.trim() || '',
+    email:   document.getElementById('s-email')?.value.trim() || '',
+    phone:   document.getElementById('s-phone')?.value.trim() || '',
+    date: new Date().toLocaleDateString('ru'),
+    time: new Date().toLocaleTimeString('ru', { hour: '2-digit', minute: '2-digit' })
+  };
   applications.unshift(app);
-  localStorage.setItem('hub_apps',JSON.stringify(applications));
-  if(tg) tg.sendData(JSON.stringify({action:'submit',...app}));
+  localStorage.setItem('hub_apps', JSON.stringify(applications));
+  // Отправляем боту (он пришлёт подтверждение в Telegram)
+  if (tg) tg.sendData(JSON.stringify(app));
   showScreen('screen-success');
 }
-function goHome() { showScreen(state.role==='student'?'screen-student':'screen-startup'); }
 
+function goHome() {
+  showScreen(state.role === 'student' ? 'screen-student' : 'screen-startup');
+}
+
+// ── Панель заявок ──────────────────────────────────────────────────────────────
+function showAdminScreen(back) {
+  document.getElementById('admin-back-btn').onclick = () => goBack(back);
+  showScreen('screen-admin');
+  const today = new Date().toLocaleDateString('ru');
+  document.getElementById('stat-total').textContent = applications.length;
+  document.getElementById('stat-new').textContent = applications.filter(a => a.date === today).length;
+  const list = document.getElementById('apps-list');
+  if (!applications.length) {
+    list.innerHTML = '<div style="text-align:center;color:var(--muted);padding:30px;font-size:14px">Заявок пока нет</div>';
+    return;
+  }
+  list.innerHTML = applications.slice(0, 20).map(a => `
+    <div class="app-card ${a.role}">
+      <div class="app-header">
+        <div class="app-name">${a.fio}</div>
+        <div class="app-badge">${a.role === 'student' ? 'Студент' : 'Стартап'}</div>
+      </div>
+      <div class="app-type">${a.typeName}</div>
+      <div class="app-meta">${a.date} · ${a.time}</div>
+    </div>`).join('');
+}
+
+// ── Заявка студента ────────────────────────────────────────────────────────────
 function submitStudentForm() {
   const email = document.getElementById('st-email').value.trim();
   const phone = document.getElementById('st-phone').value.trim();
   const uni   = document.getElementById('st-uni').value.trim();
   const year  = document.getElementById('st-year').value;
   const spec  = document.getElementById('st-spec').value.trim();
-  if(!email || !phone || !uni || !year || !spec){ alert('Заполните все поля'); return; }
-  const app = { id:Date.now(), fio:state.fio, role:'student', typeName:'Заявка студента', email, phone, uni, year, spec, date:new Date().toLocaleDateString('ru'), time:new Date().toLocaleTimeString('ru',{hour:'2-digit',minute:'2-digit'}) };
+  if (!email || !phone || !uni || !year || !spec) { alert('Заполните все поля'); return; }
+
+  const app = {
+    action: 'student_apply',
+    id: Date.now(),
+    fio: state.fio,
+    role: 'student',
+    typeName: 'Заявка студента',
+    email, phone, uni, year, spec,
+    date: new Date().toLocaleDateString('ru'),
+    time: new Date().toLocaleTimeString('ru', { hour: '2-digit', minute: '2-digit' })
+  };
   applications.unshift(app);
-  localStorage.setItem('hub_apps',JSON.stringify(applications));
-  if(tg) tg.sendData(JSON.stringify({action:'student_apply',...app}));
+  localStorage.setItem('hub_apps', JSON.stringify(applications));
+  if (tg) tg.sendData(JSON.stringify(app));
   showScreen('screen-success');
 }
 
-// ===== ЖАҢА ҚАУІПСІЗ sendAI() ФУНКЦИЯСЫ =====
+// ── ИИ-ассистент: вопрос → бот → Groq → ответ в Telegram чат ─────────────────
+// API ключ Groq хранится только в config.py на сервере — НИКОГДА не в браузере!
 function sendAI() {
   const input = document.getElementById('ai-input');
   const text = input.value.trim();
-  if(!text) return;
-  
-  // WebApp-та жазғанын көрсетеміз
+  if (!text) return;
+  input.value = '';
+
   const msgs = document.getElementById('ai-messages');
+
+  // Показываем вопрос пользователя
   msgs.innerHTML += `<div class="msg user">${text}</div>`;
   msgs.scrollTop = msgs.scrollHeight;
 
-  // Telegram ботқа JSON жібереміз
-  if(tg) {
-      let data = { action: 'ai_question', question: text };
-      tg.sendData(JSON.stringify(data));
-      tg.close(); // Сұрақты жіберіп, терезені жабады. Жауап чатқа келеді.
+  if (tg) {
+    // Отправляем боту через Telegram — бот вызовет Groq и ответит в чат
+    tg.sendData(JSON.stringify({
+      action: 'ai_question',
+      question: text
+    }));
+
+    // Показываем подтверждение и закрываем WebApp
+    msgs.innerHTML += `
+      <div class="msg bot" style="background:rgba(6,182,212,0.1);border-color:rgba(6,182,212,0.3)">
+        ✅ <b>Вопрос отправлен!</b><br>
+        <span style="color:var(--muted);font-size:12px">Ответ придёт в ваш Telegram чат через несколько секунд.</span>
+      </div>`;
+    msgs.scrollTop = msgs.scrollHeight;
+
+    // Закрываем WebApp через 1.5 сек чтобы пользователь увидел подтверждение
+    setTimeout(() => tg.close(), 1500);
+
   } else {
-      alert("Бұл функция тек Telegram ішінде жұмыс істейді!");
+    // Режим разработки (открыт в браузере, не в Telegram)
+    msgs.innerHTML += `
+      <div class="msg bot typing">
+        ⚠️ <b>Режим разработки</b><br>
+        Откройте WebApp через Telegram бота — тогда ИИ ответит прямо в чат.
+      </div>`;
+    msgs.scrollTop = msgs.scrollHeight;
   }
 }
+
+// Отправка по Enter
+document.addEventListener('DOMContentLoaded', () => {
+  const aiInput = document.getElementById('ai-input');
+  if (aiInput) {
+    aiInput.addEventListener('keydown', e => { if (e.key === 'Enter') sendAI(); });
+  }
+});
 </script>
 </body>
 </html>
