@@ -469,7 +469,7 @@ function submitStudentForm() {
 
 // ── ИИ-ассистент: вопрос → бот → Groq → ответ в Telegram чат ─────────────────
 // API ключ Groq хранится только в config.py на сервере — НИКОГДА не в браузере!
-function sendAI() {
+async function sendAI() {
   const input = document.getElementById('ai-input');
   const text = input.value.trim();
   if (!text) return;
@@ -477,35 +477,33 @@ function sendAI() {
 
   const msgs = document.getElementById('ai-messages');
 
-  // Показываем вопрос пользователя
+  // Пайдаланушының сұрағын шығару
   msgs.innerHTML += `<div class="msg user">${text}</div>`;
+  
+  // ИИ ойланып жатқанын көрсету
+  const typingId = 'typing-' + Date.now();
+  msgs.innerHTML += `<div class="msg bot typing" id="${typingId}">ИИ ойланып жатыр... 🤖</div>`;
   msgs.scrollTop = msgs.scrollHeight;
 
-  if (tg) {
-    // Отправляем боту через Telegram — бот вызовет Groq и ответит в чат
-    tg.sendData(JSON.stringify({
-      action: 'ai_question',
-      question: text
-    }));
+  try {
+    // Render-дегі серверге сұрау жіберу
+    const response = await fetch('https://bot-almaty.onrender.com/ask-ai', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ question: text })
+    });
 
-    // Показываем подтверждение и закрываем WebApp
-    msgs.innerHTML += `
-      <div class="msg bot" style="background:rgba(6,182,212,0.1);border-color:rgba(6,182,212,0.3)">
-        ✅ <b>Вопрос отправлен!</b><br>
-        <span style="color:var(--muted);font-size:12px">Ответ придёт в ваш Telegram чат через несколько секунд.</span>
-      </div>`;
+    const data = await response.json();
+    
+    // "Ойланып жатыр" дегенді өшіріп, жауапты шығару
+    document.getElementById(typingId).remove();
+    const formattedAnswer = data.answer.replace(/\*\*(.*?)\*\*/g, '<b>$1</b>').replace(/\n/g, '<br>');
+    msgs.innerHTML += `<div class="msg bot">${formattedAnswer}</div>`;
     msgs.scrollTop = msgs.scrollHeight;
 
-    // Закрываем WebApp через 1.5 сек чтобы пользователь увидел подтверждение
-    setTimeout(() => tg.close(), 1500);
-
-  } else {
-    // Режим разработки (открыт в браузере, не в Telegram)
-    msgs.innerHTML += `
-      <div class="msg bot typing">
-        ⚠️ <b>Режим разработки</b><br>
-        Откройте WebApp через Telegram бота — тогда ИИ ответит прямо в чат.
-      </div>`;
+  } catch (error) {
+    document.getElementById(typingId).remove();
+    msgs.innerHTML += `<div class="msg bot" style="color: red;">❌ Қате шықты. Сервер ұйықтап жатқан болуы мүмкін немесе интернет нашар.</div>`;
     msgs.scrollTop = msgs.scrollHeight;
   }
 }
