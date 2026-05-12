@@ -259,26 +259,47 @@
 </div>
 
 <!-- RESIDENCY -->
-<div class="screen" id="screen-residency">
-  <div class="header">
-    <div class="header-back visible" onclick="goBack('screen-startup')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>Назад</div>
-    <div class="logo"><div class="logo-dot">🏢</div>Almaty <span>Hub</span></div>
-    <div class="header-sub">Резидентство</div>
-  </div>
-  <div class="content">
-   <div class="menu-item" onclick="showScreen('screen-programs')"> 
-    <div class="menu-icon">🤖</div>
-    <div class="menu-title">Программы</div>
-    <div class="menu-sub">Silkway, AI'preneurs, т.б.</div>
+<div class="card" onclick="togglePrograms()" style="cursor: pointer;">
+    <div class="icon">📁</div>
+    <h3>Программы</h3>
+    <p>Бағдарламаларды көру (басыңыз)</p>
 </div>
 
-<div class="menu-item" onclick="openLink('https://docs.google.com/forms/d/e/1FAIpQLSfc5oIMlDsCox2ZrlZO7oXHjLMpCakgKkv7q5V3GjmNly_GNA/viewform')">
-    <div class="menu-icon">🏢</div>
-    <div class="menu-title">Резидентство</div>
-    <div class="menu-sub">Подать заявку</div>
+<div id="programsList" style="display: none; margin-top: 15px; border-top: 1px solid #ccc; padding-top: 10px;">
+    
+    <a href="СЕНІҢ_SILKWAY_СІЛТЕМЕҢ" target="_blank" class="card" style="background-color: #f9f9f9;">
+        <div class="icon">🚀</div>
+        <h3>Silkway Accelerator</h3>
+    </a>
+
+    <a href="СЕНІҢ_AIPRENEURS_СІЛТЕМЕҢ" target="_blank" class="card" style="background-color: #f9f9f9;">
+        <div class="icon">🧠</div>
+        <h3>AI'preneurs</h3>
+    </a>
+
+    <a href="СЕНІҢ_EURASIA_СІЛТЕМЕҢ" target="_blank" class="card" style="background-color: #f9f9f9;">
+        <div class="icon">🌍</div>
+        <h3>Central Eurasia</h3>
+    </a>
+
 </div>
-  </div>
-</div>
+
+<a href="СЕНІҢ_РЕЗИДЕНТСТВО_СІЛТЕМЕҢ" class="card">
+    <div class="icon">🏢</div>
+    <h3>Резидентство</h3>
+    <p>Подать заявку</p>
+</a>
+
+<script>
+    function togglePrograms() {
+        var list = document.getElementById("programsList");
+        if (list.style.display === "none") {
+            list.style.display = "block"; // Тізімді көрсету
+        } else {
+            list.style.display = "none";  // Тізімді жасыру
+        }
+    }
+</script>
 
 <!-- AI CHAT -->
 <div class="screen" id="screen-ai">
