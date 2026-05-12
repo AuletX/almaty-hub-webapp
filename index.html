@@ -258,47 +258,47 @@
   </div>
 </div>
 
-<!-- RESIDENCY -->
-<div class="card" onclick="togglePrograms()" style="cursor: pointer;">
-    <div class="icon">📁</div>
-    <h3>Программы</h3>
-    <p>Бағдарламаларды көру (басыңыз)</p>
-</div>
+<!-- STARTER SECTION -->
+<div class="grid-2col">
 
-<div id="programsList" style="display: none; margin-top: 15px; border-top: 1px solid #ccc; padding-top: 10px;">
-    
-    <a href="СЕНІҢ_SILKWAY_СІЛТЕМЕҢ" target="_blank" class="card" style="background-color: #f9f9f9;">
-        <div class="icon">🚀</div>
+  <!-- СЛЕВА: Программы -->
+  <div>
+    <div class="card" onclick="togglePrograms()" style="cursor: pointer;">
+      <div class="icon">🏢</div>
+      <h3>Программы</h3>
+      <p>Бағдарламаларды көру</p>
+    </div>
+
+    <div id="programsList" style="display: none; margin-top: 15px; border-top: 1px solid #ccc; padding-top: 10px;">
+      <a href="СЕНІҢ_SILKWAY_СІЛТЕМЕҢ" target="_blank" class="card" style="background-color: #f9f9f9;">
+        <div class="icon">✈️</div>
         <h3>Silkway Accelerator</h3>
-    </a>
-
-    <a href="СЕНІҢ_AIPRENEURS_СІЛТЕМЕҢ" target="_blank" class="card" style="background-color: #f9f9f9;">
-        <div class="icon">🧠</div>
+      </a>
+      <a href="СЕНІҢ_AIPRENEURS_СІЛТЕМЕҢ" target="_blank" class="card" style="background-color: #f9f9f9;">
+        <div class="icon">🤖</div>
         <h3>AI'preneurs</h3>
-    </a>
-
-    <a href="СЕНІҢ_EURASIA_СІЛТЕМЕҢ" target="_blank" class="card" style="background-color: #f9f9f9;">
+      </a>
+      <a href="СЕНІҢ_EURASIA_СІЛТЕМЕҢ" target="_blank" class="card" style="background-color: #f9f9f9;">
         <div class="icon">🌍</div>
         <h3>Central Eurasia</h3>
-    </a>
+      </a>
+    </div>
+  </div>
+
+  <!-- ОҢДА: Резидентство -->
+  <a href="СЕНІҢ_РЕЗИДЕНТСТВО_СІЛТЕМЕҢ" class="card">
+    <div class="icon">📋</div>
+    <h3>Резидентство</h3>
+    <p>Подать заявку</p>
+  </a>
 
 </div>
 
-<a href="СЕНІҢ_РЕЗИДЕНТСТВО_СІЛТЕМЕҢ" class="card">
-    <div class="icon">🏢</div>
-    <h3>Резидентство</h3>
-    <p>Подать заявку</p>
-</a>
-
 <script>
-    function togglePrograms() {
-        var list = document.getElementById("programsList");
-        if (list.style.display === "none") {
-            list.style.display = "block"; // Тізімді көрсету
-        } else {
-            list.style.display = "none";  // Тізімді жасыру
-        }
-    }
+function togglePrograms() {
+  var list = document.getElementById('programsList');
+  list.style.display = (list.style.display === 'none') ? 'block' : 'none';
+}
 </script>
 
 <!-- AI CHAT -->
