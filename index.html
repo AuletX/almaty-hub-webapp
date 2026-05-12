@@ -220,6 +220,7 @@
   <div class="content">
     <div class="section-title">Что вас интересует?</div>
     <div class="menu-grid">
+
       <div class="menu-item ai-item" onclick="showScreen('screen-ai')">
         <div class="ai-glow">🤖</div>
         <div>
@@ -228,76 +229,46 @@
           <div class="ai-badge">Groq Cloud · Бесплатно</div>
         </div>
       </div>
-      <div class="menu-item" onclick="showScreen('screen-residency')">
-        <div class="menu-icon">🏢</div><div class="menu-title">Резидентство</div><div class="menu-sub">Программы</div>
+
+      <!-- СЛЕВА: Программы -->
+      <div class="menu-item" onclick="togglePrograms()" style="cursor:pointer; position:relative;">
+        <div class="menu-icon">🏢</div>
+        <div class="menu-title">Программы</div>
+        <div class="menu-sub">Выберите программу</div>
       </div>
-      <div class="menu-item" onclick="showScreen('screen-form')">
-        <div class="menu-icon">📝</div><div class="menu-title">Подать заявку</div><div class="menu-sub">Онлайн форма</div>
+
+      <!-- СПРАВА: Резидентство -->
+      <div class="menu-item" onclick="openLink('ССЫЛКА_НА_РЕЗИДЕНТСТВО')">
+        <div class="menu-icon">📋</div>
+        <div class="menu-title">Резидентство</div>
+        <div class="menu-sub">Подать заявку</div>
       </div>
-    </div>
-  </div>
-</div>
 
-<!-- FORM -->
-<div class="screen" id="screen-form">
-  <div class="header">
-    <div class="header-back visible" onclick="goBack('screen-startup')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>Назад</div>
-    <div class="logo"><div class="logo-dot">📝</div>Almaty <span>Hub</span></div>
-    <div class="header-sub">Заявка стартапа</div>
-  </div>
-  <div class="content">
-    <div class="form-title">📝 Заявка стартапа</div>
-    <div class="form-desc">Заполните информацию о вашем стартапе</div>
-    <div class="field"><label>Название компании</label><input type="text" id="s-company" placeholder="Название стартапа"/></div>
-    <div class="field"><label>О продукте / сервисе</label><textarea id="s-product" placeholder="Кратко опишите стартап..."></textarea></div>
-    <div class="field"><label>Контактное лицо</label><input type="text" id="s-contact" placeholder="Имя и должность"/></div>
-    <div class="field"><label>Email</label><input type="email" id="s-email" placeholder="example@startup.com"/></div>
-    <div class="field"><label>Телефон</label><input type="tel" id="s-phone" placeholder="+7 700 000 00 00"/></div>
-    <div class="field"><label>БИН (если есть)</label><input type="text" id="s-bin" placeholder="Необязательно"/></div>
-    <button class="btn gold" onclick="submitForm()">Отправить заявку ✓</button>
-  </div>
-</div>
-
-<!-- STARTER SECTION -->
-<div class="grid-2col">
-
-  <!-- СЛЕВА: Программы -->
-  <div>
-    <div class="card" onclick="togglePrograms()" style="cursor: pointer;">
-      <div class="icon">🏢</div>
-      <h3>Программы</h3>
-      <p>Бағдарламаларды көру</p>
     </div>
 
-    <div id="programsList" style="display: none; margin-top: 15px; border-top: 1px solid #ccc; padding-top: 10px;">
-      <a href="СЕНІҢ_SILKWAY_СІЛТЕМЕҢ" target="_blank" class="card" style="background-color: #f9f9f9;">
-        <div class="icon">✈️</div>
-        <h3>Silkway Accelerator</h3>
+    <!-- Список программ — раскрывается при клике -->
+    <div id="programsList" style="display:none; margin-top:12px; flex-direction:column; gap:8px;">
+      <a href="ССЫЛКА_SILKWAY" target="_blank" class="menu-item" style="display:flex; align-items:center; gap:12px; text-align:left; text-decoration:none;">
+        <div style="font-size:22px">✈️</div>
+        <div><div class="menu-title">Silkway Accelerator</div></div>
       </a>
-      <a href="СЕНІҢ_AIPRENEURS_СІЛТЕМЕҢ" target="_blank" class="card" style="background-color: #f9f9f9;">
-        <div class="icon">🤖</div>
-        <h3>AI'preneurs</h3>
+      <a href="ССЫЛКА_AIPRENEURS" target="_blank" class="menu-item" style="display:flex; align-items:center; gap:12px; text-align:left; text-decoration:none;">
+        <div style="font-size:22px">🤖</div>
+        <div><div class="menu-title">AI'preneurs</div></div>
       </a>
-      <a href="СЕНІҢ_EURASIA_СІЛТЕМЕҢ" target="_blank" class="card" style="background-color: #f9f9f9;">
-        <div class="icon">🌍</div>
-        <h3>Central Eurasia</h3>
+      <a href="ССЫЛКА_CENTRAL_EURASIA" target="_blank" class="menu-item" style="display:flex; align-items:center; gap:12px; text-align:left; text-decoration:none;">
+        <div style="font-size:22px">🌍</div>
+        <div><div class="menu-title">Central Eurasia</div></div>
       </a>
     </div>
+
   </div>
-
-  <!-- ОҢДА: Резидентство -->
-  <a href="СЕНІҢ_РЕЗИДЕНТСТВО_СІЛТЕМЕҢ" class="card">
-    <div class="icon">📋</div>
-    <h3>Резидентство</h3>
-    <p>Подать заявку</p>
-  </a>
-
 </div>
 
 <script>
 function togglePrograms() {
   var list = document.getElementById('programsList');
-  list.style.display = (list.style.display === 'none') ? 'block' : 'none';
+  list.style.display = (list.style.display === 'none') ? 'flex' : 'none';
 }
 </script>
 
